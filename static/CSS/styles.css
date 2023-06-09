@@ -1,0 +1,65 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos de la barra de navegación */
+  
+  .navbar {
+    background-color: #343a40;
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff;
+  }
+  
+  /* Estilos del formulario */
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border-radius: 0;
+  }
+  
+  .btn-primary {
+    border-radius: 0;
+  }
+  
+  /* Estilos de la tabla de precios */
+  
+  .result {
+    margin-top: 40px;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  /* Estilos responsivos */
+  
+  @media (max-width: 768px) {
+    .container {
+      max-width: 90%;
+    }
+  }
+  

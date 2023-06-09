@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Albion Online Market</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Albion Online Market</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="text-center mt-5">Albion Online Market Prices</h1>
+    <form method="POST" action="/">
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+          <div class="form-group">
+            <label for="items">Items of Interest:</label>
+            <input type="text" class="form-control" id="items" name="items" placeholder="Enter items separated by commas" value="{{ items }}">
+          </div>
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" value="{{ location }}">
+          </div>
+          <div class="form-group">
+            <label for="quality">Quality:</label>
+            <input type="text" class="form-control" id="quality" name="quality" placeholder="Enter quality" value="{{ quality }}">
+          </div>
+          <button type="submit" class="btn btn-primary">Get Prices</button>
+        </div>
+      </div>
+    </form>
+    <div class="result">
+      {% if current_price_data %}
+      <h2 class="text-center mt-5">Current Prices:</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover mt-3">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Current Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for data in current_price_data %}
+            <tr>
+              <td>{{ data['Item Name'] }}</td>
+              <td>{{ data['Current Price'] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
